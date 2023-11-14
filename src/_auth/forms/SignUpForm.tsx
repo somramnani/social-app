@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
+import { SignUpValidation } from "@/lib/validation";
 import {
   Form,
   FormControl,
@@ -18,7 +19,7 @@ const formSchema = z.object({
 });
 
 const SignUpForm = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<z.infer<typeof SignUpValidation>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
